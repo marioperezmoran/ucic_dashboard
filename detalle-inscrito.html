@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html ng-app="AppDetalleInscrito" ng-app lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <title>UCIC - Reportes</title>
+    
+    <link href="assets/plugins/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="assets/js/modernizr.min.js"></script>
+
+  </head>
+
+  <body class="fixed-left" style="background-color: #e8e8e8; font-size: 11px;">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+      <!-- Top Bar Start -->
+      <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="resumen.html" class="logo"><img src ="assets/images/logo/isotipo-ucic.png" style="width:40px;height:40px"><img class="icono2" src = "assets/images/logo/logo-ucic.png" style="width: 60px;height:40px;margin-left: 12px"></a>
+            </div>
+        </div>
+
+        <!-- Button mobile view to collapse sidebar menu -->
+        <div class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div class="">
+              <div class="pull-left">
+                <button class="button-menu-mobile open-left">
+                  <i class="ion-navicon"></i>
+                </button>
+                <span class="clearfix"></span>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right pull-right">
+                <li class="hidden-xs">
+                  <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="icon-size-fullscreen"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <!-- Top Bar End -->
+
+
+      <!-- ========== Left Sidebar Start ========== -->
+
+      <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+          <!--- Divider -->
+          <div id="sidebar-menu">
+            <ul>
+              <li class="has_sub">
+                <a href="#"><i class="ti-home"></i><span> Informe Capacitación </span> </a>
+                <ul class="list-unstyled">
+                  <li><a href="resumen.html"><i class="ti-dashboard"></i><span>Resumen general</span></a></li>
+                  <li><a href="resumen-areas.html"><i class="ti-pie-chart"></i><span>Resumen por áreas</span></a></li>
+                  <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect active"><i class="ti-menu-alt"></i><span>Detalles</span></a>
+                    <ul style="">
+                        <li><a href="detalle-curso.html" class="active"><i class="ti-agenda"></i><span>Por curso</span></a></li>
+                        <li><a href="detalle-inscrito.html"><i class="ti-user"></i><span>Por inscrito</span></a></li>
+                  </li>
+                </ul>
+                <li><a href="en-blanco.html"><span>En blanco</span></a></li>
+              </li>
+            </ul>
+
+            <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <!-- Start content -->
+        <div class="content" style="margin-bottom: 20px;">
+
+          <div class="container">
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card-box">
+                  <div ng-controller="DetalleInscritoCtrl">  
+                     <div class="container-fluid">  
+                        <div class="m-b-10">
+                          <h4 class="text-dark header-title m-t-0 m-b-0 col-md-10 col-sm-10 col-lg-11 col-xs-7" style="text-align: left;">Detalle por inscrito</h4>
+                          <button class="btn btn-primary btn-sm m-t-0 m-b-0 col-md-2 col-sm-2 col-lg-1 col-xs-5" ng-click="exportDetalleInscrito()">Exportar</button>
+                        </div>
+
+                    <form class="form-horizontal m-t-20" role="form">
+                      <div class="form-group has-feedback">
+                        <label class="col-md-1 col-sm-2 col-lg-1 col-xs-12 control-label"  style="text-align: left;">Filtro</label>
+                        <div class="col-md-5 col-sm-10 col-lg-5 col-xs-12">
+                          <input type="text" ng-model="search" ng-change="filter()" class="form-control input-sm" placeholder="Filtrar detalle">
+                          <i class="fa fa-search form-control-feedback l-h-34"></i>
+                        </div>
+                      </div>
+                    </form>
+
+                       <hr />  
+                       <div class="tabla-scroll" data-mcs-theme="dark" style="height:340px;">  
+                       <table id="datatable" class="table table-striped" style="height:340px;">  
+                         <thead>  
+                           <tr>  
+                            
+                            <th>Ciclo&nbsp;<a ng-click="sort_by('ciclo');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Mes&nbsp;<a ng-click="sort_by('mes');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Nivel 1&nbsp;<a ng-click="sort_by('nivel1');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Nivel 2&nbsp;<a ng-click="sort_by('nivel2');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Registro&nbsp;<a ng-click="sort_by('registro');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>DNI&nbsp;<a ng-click="sort_by('dni');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Colaborador&nbsp;<a ng-click="sort_by('colaborador');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Cargo&nbsp;<a ng-click="sort_by('cargo');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Curso&nbsp;<a ng-click="sort_by('curso');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Programa&nbsp;<a ng-click="sort_by('programa');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Sesión&nbsp;<a ng-click="sort_by('sesion');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Tipo&nbsp;<a ng-click="sort_by('tipo_capacitacion');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Modalidad&nbsp;<a ng-click="sort_by('modalidad');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Expositor&nbsp;<a ng-click="sort_by('expositor');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>F Ini&nbsp;<a ng-click="sort_by('f_inicio');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>F Fin&nbsp;<a ng-click="sort_by('f_fin');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th># Sesiones&nbsp;<a ng-click="sort_by('sesiones');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Horas Lectivas&nbsp;<a ng-click="sort_by('horas_lectivas');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Horas Asistidas&nbsp;<a ng-click="sort_by('horas_asistidas');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>% Asistencia&nbsp;<a ng-click="sort_by('asistencia');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Nota&nbsp;<a ng-click="sort_by('nota');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>Estado&nbsp;<a ng-click="sort_by('estado');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>FB Curso&nbsp;<a ng-click="sort_by('fb_curso');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>FB Utilidad&nbsp;<a ng-click="sort_by('fb_utilidad');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                            <th>FB Expositor&nbsp;<a ng-click="sort_by('fb_expositor');"><i class="glyphicon glyphicon-sort"></i></a></th>
+
+                          </tr>
+                           </tr>  
+                         </thead>  
+                         <tbody>  
+                           <tr ng-repeat="data in filtered = (list | filter:search | orderBy:predicate:reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">  
+
+                            <td>{{data.ciclo}}</td>
+                            <td>{{data.mes}}</td>
+                            <td>{{data.nivel1}}</td>
+                            <td>{{data.nivel2}}</td>
+                            <td>{{data.registro}}</td>
+                            <td>{{data.dni}}</td>
+                            <td>{{data.colaborador}}</td>
+                            <td>{{data.cargo}}</td>
+                            <td>{{data.curso}}</td>
+                            <td>{{data.programa}}</td>
+                            <td>{{data.sesion}}</td>
+                            <td>{{data.tipo_capacitacion}}</td>
+                            <td>{{data.modalidad}}</td>
+                            <td>{{data.expositor}}</td>
+                            <td>{{data.f_inicio}}</td>
+                            <td>{{data.f_fin}}</td>
+                            <td>{{data.sesiones}}</td>
+                            <td>{{data.horas_lectivas}}</td>
+                            <td>{{data.horas_asistidas}}</td>
+                            <td>{{data.asistencia}}</td>
+                            <td>{{data.nota}}</td>
+                            <td>{{data.estado}}</td>
+                            <td>{{data.fb_curso}}</td>
+                            <td>{{data.fb_utilidad}}</td>
+                            <td>{{data.fb_expositor}}</td>
+
+                           </tr>  
+                         </tbody>  
+                       </table>  
+                       </div>
+                       <pagination total-items="totalItems" ng-model="currentPage"  
+                             max-size="5" boundary-links="true"  
+                             items-per-page="numPerPage" class="pagination-sm">  
+                       </pagination>  
+                     </div>  
+                   </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- container -->
+        </div> <!-- content -->
+
+        <footer class="footer text-right">
+            2016 © UCIC
+        </footer>
+
+      </div>
+
+    </div>
+    <!-- END wrapper -->
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+    <script src="assets/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- jQuery  -->
+    <script src="assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+
+    <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+    <script src="assets/plugins/FileSaver.js-master/FileSaver.min.js"></script>
+
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+
+    <script src="assets/plugins/angular/angular.min.js"></script>
+    <script src="app/AppDetalleInscrito.js"></script>  
+        
+    <script src="assets/plugins/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="assets/plugins/fixed-header-table/jquery.fixedheadertable.min.js"></script>
+    <script src="assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+   <script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>
+    
+   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>  
+
+   <script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>  
+
+   
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.counter').counterUp({
+                delay: 100,
+                time: 1200
+            });
+            $(".tabla-scroll").mCustomScrollbar({
+                axis:"yx",
+                mouseWheel:{ enable: false}
+            });
+            $('.fixed-header').fixedHeaderTable({ 
+              footer: false,
+              cloneHeadToFoot: false,
+              fixedColumn: false 
+            });
+
+        });
+    </script>
+
+  </body>
+</html>
